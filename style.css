@@ -15,16 +15,19 @@ body {
     margin: 0;
     padding: 0;
 }
-
+body h2 {
+    font-weight: 700;
+}
 .container {
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(10,1fr);
     gap: 24px;
     height: 100vh;
-    width: 100%;
+    /* width: 100%; */
+    max-width: 1300px;
     margin: auto;
-    padding: 10px 100px;
+    padding: 30px 100px;
     box-sizing: border-box;
     grid-template-areas:
         "sixth first first third"
@@ -59,11 +62,24 @@ body {
     color: white;
 }
 .first    { grid-area: first;    background: #7c5cff; color: #ffffff; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.second   { grid-area: second;   background: #f7c873; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.second {
+    grid-area: second;
+    background: #f7c873;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;      /* Push content to the bottom */
+    justify-content: flex-end;  /* Push content to the bottom */
+    padding: 0;
+    height: 100%;               /* Take full grid cell height */
+    min-height: 280px;          /* Adjust as needed */
+    overflow: hidden;           /* Hide overflow of image */
+    position: relative;
+}
 .third    { grid-area: third;    background: #e5d7fa; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .fourth   { grid-area: fourth;   background: #7c5cff; color: #fff; border-radius: 18px; display: flex; align-items: center; justify-content: center;}
 .fifth    { grid-area: fifth;    background: #fff; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.sixth    { grid-area: sixth;    background: #fff; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.sixth    { grid-area: sixth;  border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: hsl(31, 66%, 93%);}
 .seventh  { grid-area: seventh;  background: #f7c873; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .eighth   { grid-area: eighth;   background: #fff; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
@@ -72,12 +88,24 @@ body {
     padding: 20px;
     object-fit: contain;
 }
+.second {
+    overflow: hidden;
+
+}
 .second img {
+    margin: auto;
+    /* height: 100%; */
     width: 100%;
-    height: auto;
+}
+.second h2, .second p {
+    position: relative;
+    z-index: 1;
+    margin: 24px;
+    color: #222;
 }
 .fifth h2 {
     font-size: 3em;
+    z-index: 999;
 }
 
 
